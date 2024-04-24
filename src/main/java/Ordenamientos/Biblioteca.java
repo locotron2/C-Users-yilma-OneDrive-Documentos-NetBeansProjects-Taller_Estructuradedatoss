@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class Biblioteca {
     
-    // Definimos una clase para representar un libro
+    
     static class Libro {
         String titulo;
         String autor;
@@ -31,7 +31,7 @@ public class Biblioteca {
         }
     }
     
-    // Función para ordenar los libros utilizando el algoritmo de inserción
+    
     static void ordenarLibros(ArrayList<Libro> libros) {
         for (int i = 1; i < libros.size(); i++) {
             Libro actual = libros.get(i);
@@ -45,10 +45,10 @@ public class Biblioteca {
     }
     
     public static void main(String[] args) {
-        // Creamos un ArrayList para almacenar los libros
+       
         ArrayList<Libro> libros = new ArrayList<>();
         
-        // Solicitamos al usuario que ingrese los libros por teclado
+       
         Scanner scan = new Scanner(System.in);
         System.out.println("Ingrese los libros (título - autor), escriba 'fin' para terminar:");
         String entrada = scan.nextLine().trim();
@@ -63,7 +63,7 @@ public class Biblioteca {
         }
         
         
-        // Ordenamos los libros alfabéticamente por título
+        
         ordenarLibros(libros);
         
         // Mostramos los libros ordenados
