@@ -9,13 +9,9 @@ package Ordenamientos;
  * @author yilma
  */
 
-import java.util.Scanner;
-
-import java.util.ArrayList;
-
 public class Biblioteca {
     
-    
+   
     static class Libro {
         String titulo;
         String autor;
@@ -32,42 +28,32 @@ public class Biblioteca {
     }
     
     
-    static void ordenarLibros(ArrayList<Libro> libros) {
-        for (int i = 1; i < libros.size(); i++) {
-            Libro actual = libros.get(i);
+    static void ordenarLibros(Libro[] libros) {
+        for (int i = 1; i < libros.length; i++) {
+            Libro actual = libros[i];
             int j = i - 1;
-            while (j >= 0 && libros.get(j).titulo.compareTo(actual.titulo) > 0) {
-                libros.set(j + 1, libros.get(j));
+            while (j >= 0 && libros[j].titulo.compareTo(actual.titulo) > 0) {
+                libros[j + 1] = libros[j];
                 j--;
             }
-            libros.set(j + 1, actual);
+            libros[j + 1] = actual;
         }
     }
     
     public static void main(String[] args) {
-       
-        ArrayList<Libro> libros = new ArrayList<>();
-        
-       
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Ingrese los libros (título - autor), escriba 'fin' para terminar:");
-        String entrada = scan.nextLine().trim();
-        while (!entrada.equalsIgnoreCase("fin")) {
-            String[] partes = entrada.split(" - ");
-            if (partes.length == 2) {
-                libros.add(new Libro(partes[0], partes[1]));
-            } else {
-                System.out.println("Formato incorrecto. Por favor ingrese el libro en formato 'título - autor'.");
-            }
-            entrada = scan.nextLine().trim();
-        }
-        
+      
+        Libro[] libros = {
+            new Libro("El Alquimista", "Paulo Coelho"),
+            new Libro("Cien años de soledad", "Gabriel García Márquez"),
+            new Libro("Don Quijote de la Mancha", "Miguel de Cervantes"),
+            new Libro("Harry Potter y la piedra filosofal", "J.K. Rowling")
+        };
         
         
         ordenarLibros(libros);
         
-        // Mostramos los libros ordenados
-        System.out.println("\nLibros ordenados por título:");
+        
+        System.out.println("Libros ordenados por título:");
         for (Libro libro : libros) {
             System.out.println(libro);
         }
